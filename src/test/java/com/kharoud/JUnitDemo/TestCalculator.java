@@ -3,9 +3,13 @@ package com.kharoud.JUnitDemo;
 import java.security.Provider.Service;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnit;
+import org.mockito.junit.MockitoRule;
+
 import static org.mockito.Mockito.*;
 
 import com.kharoud.CalculateService;
@@ -19,8 +23,10 @@ public class TestCalculator extends TestCase {
 	
 	//Fake Object
 	@Mock
-	CalculateService service = Mockito.mock(CalculateService.class);
+	CalculateService service;
 	
+	//We need to use @Rule, if we want to use mock annotation.
+	@Rule public MockitoRule rule = MockitoJUnit.rule();
 	
 	@Before
 	public void setUp() {
