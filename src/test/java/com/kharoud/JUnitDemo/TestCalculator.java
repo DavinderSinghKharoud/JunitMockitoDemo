@@ -4,6 +4,7 @@ import java.security.Provider.Service;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import static org.mockito.Mockito.*;
 
@@ -17,6 +18,7 @@ public class TestCalculator extends TestCase {
 	Calculator c = null;
 	
 	//Fake Object
+	@Mock
 	CalculateService service = Mockito.mock(CalculateService.class);
 	
 	

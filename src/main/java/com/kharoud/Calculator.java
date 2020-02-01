@@ -7,8 +7,8 @@ public class Calculator {
 		this.service = service;
 	}
 	public int perform(int i, int j) {
-		//return service.add(i, j) * 2;
-		return (i+j)*2;
+		return service.add(i, j) * 2;
+		
 	}
 
 }
