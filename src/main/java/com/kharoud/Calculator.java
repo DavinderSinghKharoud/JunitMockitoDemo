@@ -1,9 +1,13 @@
 package com.kharoud;
 
 public class Calculator {
-
-	public int add(int i, int j) {
-		return i+j;	
+	CalculateService service;
+	
+	public Calculator(CalculateService service) {
+		this.service = service;
+	}
+	public int perform(int i, int j) {
+		return service.add(i, j) * 2;
 	}
 
 }
