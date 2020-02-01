@@ -4,6 +4,8 @@ import java.security.Provider.Service;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
 
 import com.kharoud.CalculateService;
 import com.kharoud.Calculator;
@@ -15,13 +17,7 @@ public class TestCalculator extends TestCase {
 	Calculator c = null;
 	
 	//Fake Object
-	CalculateService service = new CalculateService() {
-		
-		public int add(int i, int j) {
-			
-			return i + j;
-		}
-	};
+	CalculateService service = Mockito.mock(CalculateService.class);
 	
 	
 	@Before
@@ -30,7 +26,9 @@ public class TestCalculator extends TestCase {
 	}
 	
 	@Test
-	public void testAdd() {
+	public void testPerform() {
+		
+		when( service.add(2, 3)).thenReturn(5);
 		assertEquals(10, c.perform(2, 3));
 		
 	}
